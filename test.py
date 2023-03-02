@@ -25,6 +25,7 @@ with Camera() as video:
 
         fgmask = bs.apply(frame)
         fgmask = cropped_frame(fgmask, x, y, cw, ch)
+        fgmask = cv2.GaussianBlur(fgmask, (3,3), cv2.BORDER_DEFAULT)
 
         cv2.imshow('cropped', fgmask)
 
